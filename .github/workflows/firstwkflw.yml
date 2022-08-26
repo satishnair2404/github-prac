@@ -6,6 +6,6 @@ jobs:
     steps:
       - run: echo "SATISH"
       - run: |
-        ls
-        echo "${{ github.workspace }}"
+          ls
+          echo "${{ github.workspace }}"
 
