@@ -5,4 +5,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - run: echo "SATISH"
+      - run: |
+        ls
+        echo "${{ github.workspace }}"
 

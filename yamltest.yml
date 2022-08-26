@@ -1,0 +1,7 @@
+name: SATISH
+keyval: value
+key:
+  key12:
+    - val1
+    - val2
+  key3: val3
