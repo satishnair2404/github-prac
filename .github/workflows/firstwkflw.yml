@@ -8,7 +8,7 @@ jobs:
       - run: |
           ls
           echo "${{ github.workspace }}"
-  example-job:
+  example-upload-job:
     name: Save output
     runs-on: ubuntu-20.04
     steps:
@@ -22,3 +22,12 @@ jobs:
           path: output.log
       - run: |
           ls
+          echo "${{ .github.workspace }}"
+  example-download-job:
+    needs: [example-upload-job]
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: output-log-file
