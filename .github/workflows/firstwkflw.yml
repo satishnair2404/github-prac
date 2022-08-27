@@ -9,7 +9,7 @@ jobs:
           ls
           echo "${{ github.workspace }}"
   example-upload-job:
-    name: Save output
+#    name: Save output
     runs-on: ubuntu-20.04
     steps:
       - shell: bash
@@ -22,7 +22,7 @@ jobs:
           path: output.log
       - run: |
           ls
-          echo "${{ .github.workspace }}"
+          echo "${{ github.workspace }}"
   example-download-job:
     needs: [example-upload-job]
     runs-on: ubuntu-20.04
