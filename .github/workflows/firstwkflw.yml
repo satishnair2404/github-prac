@@ -10,6 +10,7 @@ jobs:
           echo "${{ github.workspace }}"
   example-job:
     name: Save output
+    runs-on: ubuntu-20.04
     steps:
       - shell: bash
         run: |
