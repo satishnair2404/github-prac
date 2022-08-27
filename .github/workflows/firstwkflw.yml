@@ -25,13 +25,14 @@ jobs:
       - run: |
           ls
           echo "${{ github.workspace }}"
+          echo $GLOCK
   example-download-job:
     needs: [example-upload-job]
     runs-on: ubuntu-20.04
     steps:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
-        if: ${{ $GLOCK != 1 }}
+#        if: ${{ $GLOCK != 1 }}
         with:
           name: output-log-file
       - run: |
