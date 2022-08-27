@@ -11,6 +11,8 @@ jobs:
   example-upload-job:
 #    name: Save output
     runs-on: ubuntu-20.04
+    env:
+      GLOCK: {{ 1 }}
     steps:
       - shell: bash
         run: |
@@ -29,6 +31,7 @@ jobs:
     steps:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
+        if: ${{ $GLOCK != 1 }}
         with:
           name: output-log-file
       - run: |
