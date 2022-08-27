@@ -31,3 +31,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: output-log-file
+      - run: |
+          ls
+          echo "${{ github.workspace }}"
