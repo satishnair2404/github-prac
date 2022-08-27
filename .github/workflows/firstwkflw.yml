@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
-        if: ${{ $BLOCK != 1 }}
+        if: ${{ BLOCK != 1 }}
         with:
           name: output-log-file
       - run: |
