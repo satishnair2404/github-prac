@@ -29,10 +29,12 @@ jobs:
   example-download-job:
     needs: [example-upload-job]
     runs-on: ubuntu-20.04
+    env:
+      BLOCK: ${{ 1 }}
     steps:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
-        if: ${{ GLOCK != 1 }}
+        if: ${{ $BLOCK != 1 }}
         with:
           name: output-log-file
       - run: |
