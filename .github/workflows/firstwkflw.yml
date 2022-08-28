@@ -40,4 +40,4 @@ jobs:
       - run: |
           ls
           echo "${{ github.workspace }}"
-          echo "${{ fromJSON(env.BLOCK) }}"
+          echo "${{ toJSON(env.BLOCK) }}"
