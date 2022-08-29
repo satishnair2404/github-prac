@@ -34,10 +34,10 @@ jobs:
     steps:
       - name: Download a single artifact
         uses: actions/download-artifact@v3
-        if: ${{ env.BLOCK != 1 }}
+        if: ${{ env.BLOCK !=1 }}
         with:
           name: output-log-file
       - run: |
           ls
           echo "${{ github.workspace }}"
-          echo "${{ toJSON(env.BLOCK) }}"
+          echo "${{ toJSON(job) }}"
