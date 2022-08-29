@@ -42,5 +42,5 @@ jobs:
           echo "${{ github.workspace }}"
           echo "${{ toJSON(job) }}"
       - name: From JSON
-        env: ${{ fromJSON('{"FAVORITE_FRUIT": "APPLE", "FAVORITE_COLOR": "BLUE"}') }}
-        run: echo "I would like a ${FAVORITE_COLOR} ${FAVORITE_FRUIT}" 
+        env: ${{ fromJSON('{"name":"satish", "surname":"nair"}') }}
+        run: echo "I would like a ${name} ${surname}" 
