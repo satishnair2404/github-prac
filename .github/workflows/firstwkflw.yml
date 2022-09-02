@@ -44,3 +44,4 @@ jobs:
       - name: From JSON
         env: ${{ fromJSON('{"name":"satish", "surname":"nair"}') }}
         run: echo "I would like a ${name} ${surname} and ${GITHUB_REF}" 
+      - run: echo ${{ toJSON(github) }}
