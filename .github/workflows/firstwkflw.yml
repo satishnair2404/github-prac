@@ -1,42 +1,42 @@
 name: First WorkFlow 
 on: [push]
 jobs:
-  run-echo-ubuntu:
-    runs-on: ubuntu-20.04
-    steps:
-      - run: echo "SATISH"
-      - run: |
-          ls
-          echo "${{ github.workspace }}"
-  example-upload-job:
-#    name: Save output
-    runs-on: ubuntu-20.04
-    env:
-      GLOCK: ${{ 1 }}
-    steps:
-      - shell: bash
-        run: |
-          expr 1 + 1 > output.log
-      - name: Upload output file
-        uses: actions/upload-artifact@v3
-        with:
-          name: output-log-file
-          path: output.log
-      - run: |
-          ls
-          echo "${{ github.workspace }}"
-          echo $GLOCK
+  #run-echo-ubuntu:
+  #  runs-on: ubuntu-20.04
+  #  steps:
+  #    - run: echo "SATISH"
+  #    - run: |
+  #        ls
+  #        echo "${{ github.workspace }}"
+  #example-upload-job:
+# #   name: Save output
+  #  runs-on: ubuntu-20.04
+  #  env:
+  #    GLOCK: ${{ 1 }}
+  #  steps:
+  #    - shell: bash
+  #      run: |
+  #        expr 1 + 1 > output.log
+  #    - name: Upload output file
+  #      uses: actions/upload-artifact@v3
+  #      with:
+  #        name: output-log-file
+  #        path: output.log
+  #    - run: |
+  #        ls
+  #        echo "${{ github.workspace }}"
+  #        echo $GLOCK
   example-download-job:
-    needs: [example-upload-job]
+  #  needs: [example-upload-job]
     runs-on: ubuntu-20.04
-    env:
-      BLOCK: ${{ 1 }}
+  #  env:
+  #    BLOCK: ${{ 1 }}
     steps:
-      - name: Download a single artifact
-        uses: actions/download-artifact@v3
-        if: ${{ env.BLOCK !=1 }}
-        with:
-          name: output-log-file
+  #    - name: Download a single artifact
+  #      uses: actions/download-artifact@v3
+  #      if: ${{ env.BLOCK !=1 }}
+  #      with:
+  #        name: output-log-file
       - run: |
           ls
           echo "${{ github.workspace }}"
@@ -45,3 +45,4 @@ jobs:
         env: ${{ fromJSON('{"name":"satish", "surname":"nair"}') }}
         run: echo "I would like a ${name} ${surname} and ${GITHUB_REF}" 
       - run: echo "${{ toJSON(github) }}"
+      - run: echo "${{ toJSON(github.action) }}"
